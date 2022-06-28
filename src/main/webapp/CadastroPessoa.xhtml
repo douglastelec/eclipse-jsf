@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
 	
 <h:head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -11,17 +12,17 @@
 </h:head>
 <h:body>
 
-<h:form>
+<h:form id="form">
 
 <h:panelGrid columns="2">
-<h:outputText value="Nome"/>
-<h:inputText value="#{bean.pessoa.nome}"/>
-<h:outputText value="Email"/>
-<h:inputText value="#{bean.pessoa.email}"/>
-<h:outputText/>
-<h:commandButton value="Adicionar" action="#{bean.adicionar}"/>
-<h:outputText />
-<h:commandButton value="Parar" action="#{bean.parar}"/>
+<p:outputLabel value="Nome"/>
+<p:inputText value="#{bean.pessoa.nome}"/>
+<p:outputLabel value="Email"/>
+<p:inputText value="#{bean.pessoa.email}"/>
+<p:outputLabel/>
+<p:commandButton value="Adicionar" action="#{bean.adicionar}" update="form tabelaPessoa"/>
+<p:outputLabel />
+<p:commandButton value="Parar" action="#{bean.parar}"/>
 
 </h:panelGrid>
 
@@ -29,10 +30,13 @@
 
 <h1>Lista de pessoas</h1>
 
-<h:dataTable value="#{bean.pessoas}" var="p" border="1">
-<h:column>#{p.nome}</h:column>
-<h:column>#{p.email}</h:column>
-</h:dataTable>
+<p:dataTable value="#{bean.pessoas}" var="p" border="1" id="tabelaPessoa">
+<p:column>#{p.nome}</p:column>
+<p:column>#{p.email}</p:column>
+<p:column>
+	<p:button value="Editar" outcome="/paginas/Sucesso.xhtml?parametro=#{p.nome}"/>
+</p:column>
+</p:dataTable>
 
 </h:body>
 </html>
