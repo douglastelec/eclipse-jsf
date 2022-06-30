@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+	
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<h:outputStylesheet library="css" name="k.css"/>
+	<title>Insert title here</title>
+</h:head>
+
+<h:body>
+	<header>
+		<h1>Campos de entrada de texto</h1>
+		<p:messages autoUpdate="true" id="msg"/>
+		<h:form id="form">
+			<p:panelGrid columns="2">
+				<p:outputLabel value="Nome" for="nome"/>
+				<p:inputText id="nome" required="true" requiredMessage="O nome é obrigatório"
+				maxlength="10" size="30" placeholder="Insira o nome aqui"/>
+			</p:panelGrid>
+		</h:form>
+	</header>
+</h:body>
+</html>

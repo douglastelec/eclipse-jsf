@@ -8,19 +8,21 @@
 	
 <h:head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<h:outputStylesheet library="css" name="k.css"/>
 <title>Insert title here</title>
 </h:head>
 <h:body>
 
+<p:graphicImage library="imagens" name="k.jpg" width="200"/>
 <h:form id="form">
 
 <h:panelGrid columns="2">
 <p:outputLabel value="Nome"/>
-<p:inputText value="#{bean.pessoa.nome}"/>
+<p:inputText value="#{bean.pessoa.nome}" size="50"/>
 <p:outputLabel value="Email"/>
-<p:inputText value="#{bean.pessoa.email}"/>
+<p:inputText value="#{bean.pessoa.email}" size="50"/>
 <p:outputLabel/>
-<p:commandButton value="Adicionar" action="#{bean.adicionar}" update="form tabelaPessoa"/>
+<p:commandButton id="but" value="Adicionar" action="#{bean.adicionar}" update="form tabelaPessoa"/>
 <p:outputLabel />
 <p:commandButton value="Parar" action="#{bean.parar}"/>
 
@@ -31,9 +33,9 @@
 <h1>Lista de pessoas</h1>
 
 <p:dataTable value="#{bean.pessoas}" var="p" border="1" id="tabelaPessoa">
-<p:column>#{p.nome}</p:column>
-<p:column>#{p.email}</p:column>
-<p:column>
+<p:column headerText="Nome">#{p.nome}</p:column>
+<p:column headerText="E-mail">#{p.email}</p:column>
+<p:column headerText="Editar" width="80">
 	<p:button value="Editar" outcome="/paginas/Sucesso.xhtml?parametro=#{p.nome}"/>
 </p:column>
 </p:dataTable>
